@@ -58,7 +58,6 @@ def login():
 @app.route('/talk/chat_gpt', methods=['GET'])
 def chat_gpt():
     prompt = request.args.get('query')
-    prompt = prompt + "，需要精简概括"
     if cache.get(prompt + "had_calc"):
         if cache.get(prompt):
             return text_reply(cache.get(prompt))
